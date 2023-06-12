@@ -1,0 +1,9 @@
+package com.app.services;
+
+import com.app.dto.SignupRequestDTO;
+
+public interface IUserService {
+
+	String signUpUser(SignupRequestDTO user);
+
+}

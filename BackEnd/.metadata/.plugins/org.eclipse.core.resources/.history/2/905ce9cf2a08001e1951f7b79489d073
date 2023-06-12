@@ -1,0 +1,36 @@
+package com.app.pojo;
+
+public class User {
+	
+	private int userid;
+	private String userName;
+	private String userEmail;
+	private long userNumber;
+	private long userEmgNumber;
+	private int userAge;
+	private String userGender;
+	private String userBloodGroup;
+	private int userHeight;
+	private boolean userDiabetes;
+	private boolean userBloodPressure;
+	public User() {
+		super();
+	}
+	public User(int userid, String userName, String userEmail, long userNumber, long userEmgNumber, int userAge,
+			String userGender, String userBloodGroup, int userHeight, boolean userDiabetes, boolean userBloodPressure) {
+		super();
+		this.userid = userid;
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.userNumber = userNumber;
+		this.userEmgNumber = userEmgNumber;
+		this.userAge = userAge;
+		this.userGender = userGender;
+		this.userBloodGroup = userBloodGroup;
+		this.userHeight = userHeight;
+		this.userDiabetes = userDiabetes;
+		this.userBloodPressure = userBloodPressure;
+	}
+	
+	
+}

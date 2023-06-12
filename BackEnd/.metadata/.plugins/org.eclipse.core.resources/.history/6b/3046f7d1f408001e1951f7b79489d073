@@ -1,0 +1,63 @@
+package com.app.services;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.UserRepository;
+import com.app.dto.ErrorResponse;
+import com.app.dto.LoginRequestDTO;
+import com.app.dto.SignupRequestDTO;
+import com.app.pojo.User;
+import com.app.user_excs.UserHandlingException;
+
+
+@Service
+@Transactional
+public class UserServiceImpl implements IUserService {
+
+	@Autowired
+	UserRepository userRepo;
+	
+	
+
+	@Override
+	public ResponseEntity<?> signUpUser(SignupRequestDTO user) {
+		try {
+		User user1=new User();
+		BeanUtils.copyProperties(user, user1);
+		System.out.println(user1);
+		userRepo.save(user1);
+		return ResponseEntity.ok().build();
+		} catch (Exception e) {
+	            // Handle other unexpected exceptions and return an error response
+	            ErrorResponse errorResponse = new ErrorResponse("An error occurred during signup", null);
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+	        }
+	}
+
+
+
+	@Override
+	public ResponseEntity<User> logInUser(LoginRequestDTO user) {
+		
+		User user1 = userRepo.findByUserEmail(user.getUserEmail());
+
+	    if (user1 == null) {
+	      throw new UserHandlingException("User not found");
+	    }
+
+	    // Compare the provided password with the stored password
+	    if (!user.getUserPassword().equals(user.getUserPassword())) {
+	      throw new UserHandlingException("Invalid password");
+	    }
+		return user1;
+	}
+	
+	
+
+
+}

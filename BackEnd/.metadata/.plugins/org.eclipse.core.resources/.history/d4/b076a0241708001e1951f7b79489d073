@@ -1,0 +1,8 @@
+package com.app.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public class userRepo extends JpaRepository<User,String> {
+
+	Optional<User> findByEmailAndPassword(String email, String pwd); 
+}

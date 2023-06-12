@@ -1,0 +1,16 @@
+package com.app.pojo;
+
+public class User {
+	
+	private int userid;
+	private String userName;
+	private String userEmail;
+	private long userNumber;
+	private long userEmgNumber;
+	private int userAge;
+	private String userGender;
+	private String userBloodGroup;
+	private int userHeight;
+	private boolean UserDiabetes;
+	private boolean userBloodPressure;
+}

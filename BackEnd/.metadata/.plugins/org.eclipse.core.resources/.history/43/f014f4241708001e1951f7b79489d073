@@ -1,0 +1,6 @@
+package com.app.dao;
+
+import com.app.pojo.*;
+
+public class UserRepository {
+}

@@ -1,0 +1,25 @@
+package com.app.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.UserRepository;
+import com.app.pojo.User;
+import com.app.user_excs.UserHandlingException;
+
+@Service
+@Transactional
+public class UserServiceImpl implements IUserService {
+
+	@Autowired
+	UserRepository userRepo;
+	
+	@Override
+	public User authenticateUser(String email, String password) {
+		return userRepo.findByEmailAndPassword(email, password).orElseThrow(() -> new UserHandlingException("Invalid Credentials!!!!"));
+	}
+	
+
+
+}

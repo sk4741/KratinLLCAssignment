@@ -1,0 +1,162 @@
+package com.app.pojo;
+
+import java.util.List;
+
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	private String name;
+	@Column(unique = true)
+	private String email;
+	@JsonIgnore
+	private String password;
+	private String phoneNumber;
+	private String emergencyNumber;
+	private int age;
+	private String gender;
+	private String bloodGroup;
+	private int height;
+	private boolean diabetes;
+	private boolean bloodPressure;
+	
+	 @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	  private List<MedicalDetails> medicalDetails;
+	
+
+	public User() {
+		super();
+	}
+	
+	
+	public User(int id, String name, String email, String password, String phoneNumber, String emergencyNumber, int age,
+			String gender, String bloodGroup, int height, boolean diabetes, boolean bloodPressure,
+			List<MedicalDetails> medicalDetails) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
+		this.emergencyNumber = emergencyNumber;
+		this.age = age;
+		this.gender = gender;
+		this.bloodGroup = bloodGroup;
+		this.height = height;
+		this.diabetes = diabetes;
+		this.bloodPressure = bloodPressure;
+		this.medicalDetails = medicalDetails;
+	}
+
+
+	public User(String name, String email, long phoneNumber, long emergencyNumber, int age, String gender,
+			String bloodGroup, int height, boolean diabetes, boolean bloodPressure, String password) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.emergencyNumber = emergencyNumber;
+		this.age = age;
+		this.gender = gender;
+		this.bloodGroup = bloodGroup;
+		this.height = height;
+		this.diabetes = diabetes;
+		this.bloodPressure = bloodPressure;
+		this.password = password;
+	}
+	
+	public int getUserid() {
+		return id;
+	}
+	public void setUserid(int userid) {
+		this.id = userid;
+	}
+	public String getUserName() {
+		return name;
+	}
+	public void setUserName(String userName) {
+		this.name = userName;
+	}
+	public String getUserEmail() {
+		return email;
+	}
+	public void setUserEmail(String userEmail) {
+		this.email = userEmail;
+	}
+	public long getUserNumber() {
+		return phoneNumber;
+	}
+	public void setUserNumber(long userNumber) {
+		this.phoneNumber = userNumber;
+	}
+	public long getUserEmgNumber() {
+		return emergencyNumber;
+	}
+	public void setUserEmgNumber(long userEmgNumber) {
+		this.emergencyNumber = userEmgNumber;
+	}
+	public int getUserAge() {
+		return age;
+	}
+	public void setUserAge(int userAge) {
+		this.age = userAge;
+	}
+	public String getUserGender() {
+		return gender;
+	}
+	public void setUserGender(String userGender) {
+		this.gender = userGender;
+	}
+	public String getUserBloodGroup() {
+		return bloodGroup;
+	}
+	public void setUserBloodGroup(String userBloodGroup) {
+		this.bloodGroup = userBloodGroup;
+	}
+	public int getUserHeight() {
+		return height;
+	}
+	public void setUserHeight(int userHeight) {
+		this.height = userHeight;
+	}
+	public boolean isUserDiabetes() {
+		return diabetes;
+	}
+	public void setUserDiabetes(boolean userDiabetes) {
+		this.diabetes = userDiabetes;
+	}
+	public boolean isUserBloodPressure() {
+		return bloodPressure;
+	}
+	public void setUserBloodPressure(boolean userBloodPressure) {
+		this.bloodPressure = userBloodPressure;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", phoneNumber=" + phoneNumber
+				+ ", emergencyNumber=" + emergencyNumber + ", age=" + age + ", gender=" + gender + ", bloodGroup="
+				+ bloodGroup + ", height=" + height + ", diabetes=" + diabetes + ", bloodPressure=" + bloodPressure
+				+ ", password=" + password + "]";
+	}
+
+	
+	
+	
+	
+}

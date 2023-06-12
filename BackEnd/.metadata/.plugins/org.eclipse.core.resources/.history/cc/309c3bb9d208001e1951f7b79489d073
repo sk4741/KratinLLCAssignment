@@ -1,0 +1,25 @@
+package com.app.pojo;
+
+import java.time.LocalDate;
+
+import javax.persistence.*;
+
+import org.hibernate.annotations.ForeignKey;
+
+@Entity
+public class MedicalDetails {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int recordId;
+	
+	@OneToMany
+	@JoinColumn(name="id")
+	private int userId;
+	private int weight;
+	private int fastingSugar;
+	private int postSugar;
+	private int bloodPressure;
+	private int otherDiseases;
+	private LocalDate date;
+	
+}

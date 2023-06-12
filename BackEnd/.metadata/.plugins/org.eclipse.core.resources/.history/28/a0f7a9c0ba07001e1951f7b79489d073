@@ -1,0 +1,20 @@
+package com.app.services;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.dao.userRepo;
+import com.app.pojo.User;
+
+@Service
+@Transactional
+public class UserServiceImpl implements IUserService {
+
+	@Override
+	public User authenticateUser(String email, String pwd) {
+
+		return userRepo(email, pwd).orElseThrow(() -> new UserHandlingException("Invalid Credentials!!!!"));
+	}// return in case of success DETACHED customer pojo to the caller or throws
+		// unchecked custom exception
+
+}

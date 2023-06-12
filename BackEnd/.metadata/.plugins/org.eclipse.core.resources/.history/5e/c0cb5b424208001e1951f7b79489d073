@@ -1,0 +1,12 @@
+package com.app.services;
+
+import com.app.dto.SignupRequest;
+import com.app.pojo.User;
+
+public interface IUserService {
+	
+	User authenticateUser(long email, String password);
+
+	String signUpUser(SignupRequest user);
+
+}

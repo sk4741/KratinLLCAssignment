@@ -1,0 +1,14 @@
+package com.app.services;
+
+import org.springframework.http.ResponseEntity;
+
+import com.app.dto.LoginRequestDTO;
+import com.app.dto.SignupRequestDTO;
+
+public interface IUserService {
+
+	ResponseEntity<?> signUpUser(SignupRequestDTO user);
+
+	ResponseEntity<?>  logInUser(LoginRequestDTO user);
+
+}
