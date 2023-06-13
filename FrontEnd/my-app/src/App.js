@@ -9,12 +9,7 @@ import About from "./Components/About";
 import Details from "./Components/Details";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
-// import About from './pages/about';
-// import Events from './pages/events';
-// import AnnualReport from './pages/annual';
-// import Teams from './pages/team';
-// import Blogs from './pages/blogs';
-// import SignUp from './pages/signup';
+import RegistrationForm from "./Components/EventRegistration";
 
 function App() {
   let isLoggedIn=false; 
@@ -27,11 +22,13 @@ function App() {
       <Navigation isLoggedIn={isLoggedIn} />
       <Router>
         <Routes>
+          <Route path="/" exact element={<Login/>}/>
           <Route path="/home" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/details" element={<Details/>}/>
           <Route path="/signup" element={<SignUp/>}/>
-          <Route path="/" exact element={<Login/>}/>
+          
+          <Route path="/register" element={<RegistrationForm/>}/>
         </Routes>
       </Router>
       <Footer />

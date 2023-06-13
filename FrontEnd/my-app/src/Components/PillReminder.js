@@ -48,7 +48,7 @@ const PillReminder = () => {
           <h2 className="card-title">Pill Reminder</h2>
           <div className="mb-3">
             <label htmlFor="time" className="form-label">Time</label>
-            <input type="text" className="form-control" id="time" value={time} onChange={(e) => setTime(e.target.value)} placeholder="Enter time" required />
+            <input type="time" className="form-control" id="time" value={time} onChange={(e) => setTime(e.target.value)} placeholder="Enter time" required />
           </div>
           <div className="mb-3">
             <label htmlFor="pillName" className="form-label">Pill Name</label>

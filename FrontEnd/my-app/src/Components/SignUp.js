@@ -56,14 +56,10 @@ const SignupForm = () => {
         // Sign-up successful
         alert("signup sucessful....");
         window.open("/","_self");
-        // Handle successful sign-up (e.g., display a success message)
-        // ...
       } else {
         // Sign-up failed
         alert("signup failed...")
         window.open("/signup","_self");
-        // Handle the sign-up error (e.g., display an error message)
-        // ...
       }
     } catch (error) {
       // Handle any network or server errors

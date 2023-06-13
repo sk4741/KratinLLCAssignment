@@ -27,8 +27,7 @@ const LoginForm = () => {
         alert("login sucessful....")
         window.open("/home","_self");
        
-        // Update the authentication state in your application (e.g., store a token)
-        // ...
+        // Update the authentication state in your application 
       } else {
         // Login failed
         const errorData = await response.json();

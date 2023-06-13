@@ -12,7 +12,7 @@ function MedicalReport() {
     const userData = JSON.parse(userDataString);
     const userId=userData.userId;
     try {
-      const response = await fetch(`http://localhost:9191/user/mediDetails?userId=${userId}`); // Replace with your backend API endpoint
+      const response = await fetch(`http://localhost:9191/user/mediDetails?userId=${userId}`);
       const data = await response.json();
 
       // Check if there are medical details available
@@ -25,8 +25,11 @@ function MedicalReport() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Medical Report</h2>
+    <div className="container mt-5 mb-3">
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title">Medical Report</h2>
+          <div className="mb-3">
       {medicalDetails ? (
         <table className="table table-striped mt-4">
           <thead>
@@ -55,6 +58,9 @@ function MedicalReport() {
       ) : (
         <p>No medical details available</p>
       )}
+    </div>
+    </div>
+    </div>
     </div>
   );
 }
